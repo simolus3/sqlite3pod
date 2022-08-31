@@ -16,8 +16,9 @@ LICENSE
   archive_name = "sqlite-src-"+v[0]+v[1].rjust(2, '0')+v[2].rjust(2, '0')+"00"
   s.source   = { :http => "https://www.sqlite.org/#{Time.now.year}/#{archive_name}.zip" }
   s.prepare_command = <<-CMD
-./#{archive_name}/configure
-make sqlite3.c
+cd #{archive_name}
+./configure
+make sqlite3.c sqlite3.h sqlite3ext.h
 CMD
   s.requires_arc = false
 
