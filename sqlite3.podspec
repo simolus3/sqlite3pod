@@ -136,4 +136,10 @@ CMD
     ss.dependency 'sqlite3/common'
     ss.pod_target_xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DSQLITE_ENABLE_UNLOCK_NOTIFY=1' }
   end
+
+  # The spellfix1 module not part of the default amalgation
+  s.subspec 'spellfix1' do |ss|
+    ss.dependency 'sqlite3/common'
+    ss.source_files = "#{archive_name}/ext/misc/spellfix.c"
+  end
 end
